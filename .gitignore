@@ -1,0 +1,42 @@
+# Node.js dependencies
+node_modules/
+
+# Build outputs
+build/
+dist/
+
+# Environment variables
+.env
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Runtime data
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# IDE settings and other unnecessary files
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# macOS specific files
+.DS_Store
+
+# Coverage directory used by testing tools
+coverage/
+
+# Temporary folders for development environment
+tmp/
+temp/
+
+# Optional npm cache directory
+.npm/
