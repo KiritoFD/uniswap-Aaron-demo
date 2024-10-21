@@ -1,70 +1,57 @@
-# Getting Started with Create React App
+项目概览
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+这个项目旨在展示如何使用GraphQL和The Graph来与uniswap协议交互。它包含了一个基本的前端应用程序，该应用程序使用GraphQL查询来获取和展示uniswap的数据。
 
-## Available Scripts
+核心特性
 
-In the project directory, you can run:
+GraphQL支持：通过GraphQL模式定义，可以查询uniswap的各种数据，包括交易、池、代币等。
+实时数据：利用The Graph的订阅功能，可以实时接收uniswap网络上的事件和更新。
+快速开始
+安装依赖：
 
-### `npm start`
+bash
+npm install
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+启动项目：
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+bash
+npm start
 
-### `npm test`
+探索GraphQL：
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+使用GraphQL Playground或任何支持GraphQL的客户端来探索和测试定义在schema.graphql中的查询和订阅。
+GraphQL模式定义
+以下是schema.graphql中定义的一些核心类型和查询示例：
 
-### `npm run build`
+Bundle：包含有关以太坊价格的信息。
+Pool：包含有关流动性池的详细信息，如流动性、交易量等。
+Swap：记录交换事件的详细信息，包括代币数量和价格。
+Token：包含有关代币的统计信息，如总供应量、交易量等。
+查询示例
+graphql
+query {
+  bundle {
+    id
+    ethPriceUSD
+  }
+}
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+query {
+  pool(id: "YOUR_POOL_ID") {
+    id
+    token0 {
+      id
+      symbol
+    }
+    token1 {
+      id
+      symbol
+    }
+    liquidity
+  }
+}
+贡献
+欢迎任何形式的贡献！如果你有任何问题或建议，请随时提交issue或pull request。
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+许可证
+本项目采用ISC许可证。
